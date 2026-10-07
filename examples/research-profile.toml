@@ -1,0 +1,9 @@
+# Purely synthetic example; these excluded integrations cannot be enabled.
+schema = 1
+purpose = "synthetic research only"
+
+[integrations]
+observation = false
+training = false
+automatic_maintenance = false
+cloud = false

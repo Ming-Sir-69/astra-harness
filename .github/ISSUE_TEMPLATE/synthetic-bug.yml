@@ -1,0 +1,40 @@
+name: Synthetic bug or boundary report
+description: Report the public core with freshly invented inputs; never attach actual records.
+title: "[Synthetic] "
+body:
+  - type: checkboxes
+    id: synthetic_only
+    attributes:
+      label: Synthetic input boundary
+      options:
+        - label: All examples are freshly invented; no actual records, logs, credentials, host addresses, or identifiers are included, even anonymized.
+          required: true
+  - type: input
+    id: version
+    attributes:
+      label: Public version
+      placeholder: "0.1.0"
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Affected function and expected behavior
+      description: Explain the public implementation failure without private context.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal synthetic reproduction
+      description: Use TaskA and TaskB with invented labels. Do not attach actual logs or records.
+      render: python
+    validations:
+      required: true
+  - type: textarea
+    id: observed
+    attributes:
+      label: Result of the synthetic reproduction
+      description: Summarize only the newly generated synthetic behavior.
+    validations:
+      required: true

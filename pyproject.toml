@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "astra-harness-research"
+version = "0.1.0"
+description = "Explicit-root HCD event and correction-pattern research core"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "EricMingle69"}]
+dependencies = []
+
+[project.urls]
+Repository = "https://github.com/Ming-Sir-69/astra-harness"
+
+[project.scripts]
+astra-harness-research = "astra_harness.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
