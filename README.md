@@ -20,11 +20,13 @@ Astra 是个人 Agent 体系，Harness 是其工程支撑，**HCD（Human Correc
 在源码目录执行：
 
 ```sh
-PYTHONPATH=src python -B -m unittest discover -s tests -v
-python -B scripts/publication_check.py check --root .
-DEMO_ROOT="$(mktemp -d)"
-PYTHONPATH=src python -B -m astra_harness demo --data-root "$DEMO_ROOT"
+PYTHONPATH=src python3 -B -m unittest discover -s tests -v
+python3 -B scripts/publication_check.py check --root .
+DEMO_ROOT="$(python3 -c 'import os,tempfile;print(os.path.realpath(tempfile.mkdtemp()))')"
+PYTHONPATH=src python3 -B -m astra_harness demo --data-root "$DEMO_ROOT"
 ```
+
+macOS 的 `/var`、`/tmp` 是软链接；核心拒绝软链接路径组件，上面的命令会先解析临时目录。`hcd.report` 会清理超过 90 天的证据。
 
 演示要求空白临时目录，只在其中生成**纯合成**账本：登记 TaskA/TaskB 的首次方向与纠偏，用确定性的注入 runner 找到共同的输出核验缺失模式，标记一次合成干预，再观察该模式复发。输出保留 `benefit: unknown`、`coverage: unknown`，不用模型或生产信息。
 

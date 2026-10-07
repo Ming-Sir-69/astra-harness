@@ -20,11 +20,13 @@ Python 3.11 or later on Linux/macOS is sufficient. Runtime code uses the standar
 From a source checkout:
 
 ```sh
-PYTHONPATH=src python -B -m unittest discover -s tests -v
-python -B scripts/publication_check.py check --root .
-DEMO_ROOT="$(mktemp -d)"
-PYTHONPATH=src python -B -m astra_harness demo --data-root "$DEMO_ROOT"
+PYTHONPATH=src python3 -B -m unittest discover -s tests -v
+python3 -B scripts/publication_check.py check --root .
+DEMO_ROOT="$(python3 -c 'import os,tempfile;print(os.path.realpath(tempfile.mkdtemp()))')"
+PYTHONPATH=src python3 -B -m astra_harness demo --data-root "$DEMO_ROOT"
 ```
+
+On macOS, `/var` and `/tmp` are symlinks. The core rejects symlink path components; the command above resolves its temporary directory first. `hcd.report` prunes evidence older than 90 days.
 
 The demo requires an empty scratch directory and writes a **synthetic** ledger there. It registers initial directions and corrections for TaskA/TaskB, uses a deterministic injected runner to identify a common verification omission, marks a synthetic intervention, and shows recurrence after that intervention. The result retains `benefit: unknown` and `coverage: unknown`; no model or production information is used.
 
@@ -43,6 +45,8 @@ For library use, call `hcd.record(event, data_root)` and `hcd.report(data_root)`
 | Native host collection, desktop capture, long-term memory service | Excluded | Private integration adapters and configuration are not distributed |
 | Local model training, automatic maintenance, transactional live deployment | Excluded | This package cannot install or run these integrations |
 | Cloud maintenance and MCP server | Contract lineage documented only | No cloud endpoint, credentials, authentication implementation, or server is included |
+
+Plan and result acceptance are separate. Later correction, self-correction, reopening, abandonment, goal change, or evidence expiry invalidates the relevant acceptance and scores. Weak acceptance is only an observational proxy, not explicit user acceptance.
 
 Public tests establish specified engineering behavior. They do not establish reduced human correction, complete observation, model superiority, or a causal benefit.
 

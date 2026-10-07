@@ -45,7 +45,7 @@ def identity(data):
         raise InputError('unknown_host')
     session = data.get('session')
     if not session:
-        raise InputError('session_env_missing')
+        raise InputError('session_missing')
     return host, hashed(host, short(session, 256))
 
 def project(data):
@@ -213,7 +213,7 @@ def task_summary(db, row):
     state = 'unknown'; distances = {'plan': None, 'result': None}; quality = 'unknown'
     accepted = {'plan': False, 'result': False}
     correction_turns = set(); repeated_turns = set(); unattributed = 0
-    counts = {k: 0 for k in ('clarification', 'goal_change', 'correction')}
+    counts = {k: 0 for k in ('clarification', 'goal_change', 'correction', 'self_correction')}
     for event in events:
         kind = event['kind']; payload = json.loads(event['payload'])
         if kind in counts: counts[kind] += 1

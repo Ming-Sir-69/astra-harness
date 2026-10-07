@@ -5,6 +5,7 @@ import os
 from pathlib import Path
 import tempfile
 import time
+import tomllib
 import unittest
 from unittest.mock import patch
 
@@ -13,6 +14,18 @@ class ExportTests(unittest.TestCase):
     def test_public_core_exists(self):
         self.assertIsNotNone(importlib.util.find_spec('astra_harness'),
                              'The independently exported research core must exist')
+
+    def test_version_matches_public_package(self):
+        from astra_harness import __version__
+        root = Path(__file__).resolve().parents[1]
+        version = tomllib.loads((root / 'pyproject.toml').read_text())['project']['version']
+        self.assertEqual(__version__, version)
+
+    def test_shipped_example_profile_is_disabled(self):
+        from astra_harness.profile import validate_profile
+        root = Path(__file__).resolve().parents[1]
+        profile = tomllib.loads((root / 'examples/research-profile.toml').read_text())
+        self.assertEqual(validate_profile(profile), profile)
 
 
 class CoreTests(unittest.TestCase):
@@ -109,6 +122,7 @@ class CoreTests(unittest.TestCase):
         report = self.hcd.report(self.root)
         self.assertEqual(report['R_observed'], 0)
         self.assertEqual(report['self_corrections_agent_reported']['recovered'], 1)
+        self.assertEqual(report['host_breakdown']['codex']['self_corrections'], 1)
 
     def test_expired_evidence_cannot_support_current_distance(self):
         with patch.object(self.hcd.time, 'time', return_value=time.time() - self.hcd.RETENTION - 1):
