@@ -1,17 +1,33 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg">
-  <img src="assets/banner-light.svg" alt="✦ Astra Harness — correction patterns, evidence boundaries, research core" width="100%">
+  <img src="assets/banner-light.svg" alt="Astra Harness" width="100%">
 </picture>
 
-# Astra Harness · public research core
+# Astra Harness · how I work with AI
 
 [中文](README.md) · English
 
-✦EricMingle69 · MIT · public distribution **0.1.0**
+I keep changing how I work with AI. This is where I write down what changed, how it turned out, and what I learned about how these systems behave. It is never finished.
 
-Astra is a personal agent system; Harness is its supporting engineering; **HCD (Human Correction Distance)** is the correction-evaluation module. This repository provides a runnable, deliberately bounded research core: explicit task events, evidence-aware acceptance state, and cross-task correction-pattern recurrence. It contains implementation and synthetic examples, with architecture, evolution, and research directions you can reuse.
+## How I work now
 
-It does **not** contain actual conversations, logs, memories, feedback, context, task records, operational receipts, training data, or personal configuration. None of those records are part of a release, even when anonymized. Synthetic examples are named TaskA and TaskB and do not represent a real person or task.
+No extra logging; I use the traces that already exist:
+
+1. **Gather existing traces**: commits, conversations, review comments.
+2. **Group by shared cause**: only problems whose cause shows up in two or more places.
+3. **Compare with what works well**: find the step where it falls short.
+4. **Change one thing at a time**: small enough to tell whether it was that change.
+5. **Look again later**: if the same kind of problem comes back, the change did not work.
+
+## What changed, and what I learned
+
+**From logging every correction to analysing the traces that are already there.** At first I had the AI record each correction I made and cluster them. Logging turned out to be a burden of its own, and something always got missed. Commits, conversations and reviews are kept anyway; reading them directly gives fuller material without interrupting the work.
+
+**A recent finding**: several rounds of rework had one cause — the task said how to do it, but not who it was for or what was out of scope. I added a three-line check before starting. The follow-up criterion is set; the result is not in yet and will be added here.
+
+## What is in this repository
+
+The research core of the earlier approach (per-correction logging, cross-task clustering, checking for recurrence after an intervention), version 0.1.0. The `hcd` module in the code (Human Correction Distance) was the part that scored corrections at the time; I no longer use it and keep it for reference. Only source code, synthetic examples and documentation are here — no real conversations, logs or task records.
 
 ## Run a synthetic experiment
 
@@ -60,6 +76,6 @@ Public tests establish specified engineering behavior. They do not establish red
 - [Public publication and maintenance](docs/PUBLICATION.md)
 - [Personal authorship notice](PERSONAL-NOTICE.md)
 
-[Engram](https://github.com/Ming-Sir-69/engram) is a separate long-term knowledge project. Astra's HCD module evaluates correction evidence and recurrence; this public core does not bundle an Engram service or a private integration adapter. The two projects have separate responsibilities and public release histories.
+[Engram](https://github.com/Ming-Sir-69/engram) is the knowledge base underneath this way of working, maintained separately; it is not bundled here.
 
 This is the first public distribution. Internal package `1.0.0` and MCP interface `1.0.3` are implementation lineage, not earlier public releases of this core. A new public version follows changes to the public implementation and documented research boundaries.
