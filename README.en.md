@@ -27,7 +27,7 @@ No extra logging; I use the traces that already exist:
 
 ## What is in this repository
 
-The research core of the earlier approach (per-correction logging, cross-task clustering, checking for recurrence after an intervention), version 0.1.0. The `hcd` module in the code (Human Correction Distance) was the part that scored corrections at the time; I no longer use it and keep it for reference. Only source code, synthetic examples and documentation are here — no real conversations, logs or task records.
+The research core of the earlier approach (per-correction logging, cross-task clustering, checking for recurrence after an intervention). The `hcd` module in the code (Human Correction Distance) was the part that scored corrections at the time; I no longer use it and keep it for reference. Only source code, synthetic examples and documentation are here — no real conversations, logs or task records.
 
 ## Run a synthetic experiment
 

@@ -2,6 +2,10 @@
 
 Public distribution versions track the scope of this repository. Internal package and remote-interface versions are described separately in [evolution](docs/evolution.md).
 
+## [0.1.1] - 2026-11-15
+
+Documentation only. The README now describes the current way of working (analysing existing traces instead of logging each correction) and what changed; the research core and its behaviour are unchanged.
+
 ## [0.1.0] - 2026-10-07
 
 First public distribution of the bounded research core.
