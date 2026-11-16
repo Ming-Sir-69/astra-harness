@@ -23,6 +23,8 @@ from urllib.parse import parse_qsl, urlsplit
 
 MANIFEST = "PUBLIC-FILES.json"
 CONFIG = "PUBLICATION.toml"
+# Reviewed, generated covers only; other binary files remain forbidden.
+COVER_HASHES = {'readme-assets/cover-en-light.png': '5131035bf2f197c8e2fed558c5533a453dcb6cb1ed0810d52aa5c89325eb82b3', 'readme-assets/cover-en-dark.png': '42ef1f9378e1d422d690f39baea0f41a89fd5fa09ce71a14384650e34fde03ce', 'readme-assets/cover-zh-dark.png': '56424ed6343cfdc6f5b9c7ba5174db2aa9e7867098eba410338ed7ecd649c011', 'readme-assets/cover-zh-light.png': '44618a534c39b8e280f3fd2a33afdef1d0795344557d56353e2874af4aebe14b'}
 MAX_FILES = 3000
 MAX_BYTES = 2_000_000
 DENIED_DIRS = frozenset({
@@ -385,7 +387,7 @@ def check(root, base_ref=None):
             issues.append(Issue("forbidden-directory", path))
         if suffix in DENIED_SUFFIXES or basename == ".env" or basename.startswith(".env."):
             issues.append(Issue("forbidden-file-type", path))
-        elif suffix not in TEXT_SUFFIXES and basename not in TEXT_NAMES:
+        elif path not in COVER_HASHES and suffix not in TEXT_SUFFIXES and basename not in TEXT_NAMES:
             issues.append(Issue("unsupported-file-type", path))
         issues.extend(scan_content(path, path, PUBLIC_HOSTS))
     if issues:
@@ -412,6 +414,12 @@ def check(root, base_ref=None):
     payload = {}
     texts = {}
     for path in sorted(allowed):
+        if path in COVER_HASHES:
+            data = (root / path).read_bytes()
+            if hashlib.sha256(data).hexdigest() != COVER_HASHES[path]:
+                issues.append(Issue("cover-hash-mismatch", path))
+            payload[path], texts[path] = data, ""
+            continue
         payload[path], texts[path] = read_text_file(root, path)
         issues.extend(scan_content(path, texts[path], PUBLIC_HOSTS | set(hosts)))
         if path.endswith(".svg") and re.search(r"<(?:script|foreignObject|iframe|object|embed)\b|<!DOCTYPE|<!ENTITY|\bon[a-z]+\s*=|\b(?:href|src)\s*=\s*[\"'](?:https?:|file:|data:|javascript:)", texts[path], re.I):

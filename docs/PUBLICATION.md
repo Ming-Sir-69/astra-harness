@@ -55,3 +55,7 @@ The emitted manifest contains only public file names, sizes, and SHA-256 values.
 Static checks are a release gate, not proof of provenance or absence of every possible secret encoding. A text blob without recognizable markers cannot be identified as an actual record by regex alone. Independent source/provenance review remains mandatory, and all examples must have synthetic provenance. A passing scan does not establish causal benefit or production validation of research hypotheses.
 
 维护流程不代表定时自动同步或整库上传授权。用户没有请求时不创建后台采集、同步或自动发布任务。
+
+## Generated cover exception
+
+Four reviewed PNG covers in `readme-assets/` are accepted only at exact paths and SHA-256 digests pinned in the checker. Other binary files remain rejected. Any changed cover requires visual provenance review and a digest update; automated text scanning does not inspect image contents.

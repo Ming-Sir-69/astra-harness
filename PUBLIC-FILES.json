@@ -34,6 +34,13 @@
     "src/astra_harness/safety.py",
     "src/astra_harness/storage.py",
     "tests/test_publication_guard.py",
-    "tests/test_research_core.py"
+    "tests/test_research_core.py",
+    "readme-assets/cover-en-light.png",
+    "readme-assets/cover-en-dark.png",
+    "readme-assets/cover-zh-dark.png",
+    "readme-assets/cover-zh-light.png",
+    "docs/evolution/0.1.2.md",
+    "readme-assets/architecture-light.svg",
+    "readme-assets/architecture-dark.svg"
   ]
 }
