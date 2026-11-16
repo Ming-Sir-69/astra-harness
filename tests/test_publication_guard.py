@@ -42,13 +42,16 @@ public_url_hosts = ["github.com"]
         self.manifest()
 
     def test_changed_cover_rejected(self):
-        name = next(iter(guard.COVER_HASHES))
-        self.write(name, "synthetic replacement, not reviewed cover bytes")
-        self.files.append(name)
-        self.manifest()
-        with self.assertRaises(guard.AuditError) as caught:
-            guard.check(self.root)
-        self.assertIn("cover-hash-mismatch", [issue.category for issue in caught.exception.issues])
+        for name in guard.COVER_HASHES:
+            with self.subTest(cover=name):
+                self.write(name, "synthetic replacement, not reviewed cover bytes")
+                self.files.append(name)
+                self.manifest()
+                with self.assertRaises(guard.AuditError) as caught:
+                    guard.check(self.root)
+                self.assertIn("cover-hash-mismatch", [issue.category for issue in caught.exception.issues])
+                self.files.remove(name)
+                (self.root / name).unlink()
 
     def write(self, relative, content):
         path = self.root / relative

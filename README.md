@@ -101,7 +101,7 @@ HCD 事件协议使用 Python 标准库的 SQLite 接口保存账本<sup>[[1]](#
 
 ## 致谢
 
-封面图标沿用 Lucide 几何，许可见 [图标许可](readme-assets/LUCIDE-LICENSE.txt)。
+封面插画由 OpenAI 图像生成模型生成，经本项目处理。
 
 感谢 Python 与 SQLite 开源项目提供运行环境及账本存储基础。<sup>[[1]](#参考文献)</sup>
 
@@ -123,4 +123,4 @@ HCD 事件协议使用 Python 标准库的 SQLite 接口保存账本<sup>[[1]](#
 ---
 
 文档维护：**✦ EricMingle69** · [Ming-Sir-69](https://github.com/Ming-Sir-69)  
-代码、文字与自有图形以 [MIT 许可](LICENSE) 发布；Lucide 图标沿用 [ISC 许可](readme-assets/LUCIDE-LICENSE.txt)。
+代码、文字与自有图形以 [MIT 许可](LICENSE) 发布。

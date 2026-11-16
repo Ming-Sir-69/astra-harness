@@ -103,7 +103,7 @@ Internal package `1.0.0` and MCP interface `1.0.3` are implementation lineage, n
 
 ## Acknowledgements
 
-Cover icons use Lucide geometry; see the [icon license](readme-assets/LUCIDE-LICENSE.txt).
+The cover illustration was generated with an OpenAI image-generation model and processed by this project.
 
 Acknowledgements to the Python and SQLite open-source projects for the runtime and ledger storage.<sup>[[1]](#references)</sup>
 
@@ -125,4 +125,4 @@ Acknowledgements to the Python and SQLite open-source projects for the runtime a
 ---
 
 Maintained by **✦ EricMingle69** · [Ming-Sir-69](https://github.com/Ming-Sir-69)  
-Code, text and original graphics are released under the [MIT License](LICENSE); Lucide icons retain their [ISC License](readme-assets/LUCIDE-LICENSE.txt).
+Code, text and original graphics are released under the [MIT License](LICENSE).

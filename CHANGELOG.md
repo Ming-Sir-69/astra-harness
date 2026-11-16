@@ -2,6 +2,8 @@
 
 ## [0.1.2] - 2026-11-16
 
+Facade review: move the five-step method into main features, state method changes and pending intervention objectively, and localize the architecture illustration. Covers use an OpenAI-generated illustration processed for light and dark themes; runtime behavior is unchanged.
+
 Unify bilingual README structure and generated covers. Pin four reviewed PNG hashes in the publication checker; all other binary payloads remain rejected. Runtime interfaces and research conclusions are unchanged.
 
 
@@ -24,4 +26,3 @@ First public distribution of the bounded research core.
 
 Actual records, personal runtime/configuration, native collectors, model training, automatic maintenance, live deployment, and cloud/MCP runtime are excluded. There are no earlier public tags or releases of this core. Real-user effectiveness and complete task coverage remain unverified.
 
-Facade review: move the five-step method into main features, state method changes and pending intervention objectively, and localize the architecture illustration. Covers reuse Lucide icon geometry with its ISC notice; runtime behavior is unchanged.
