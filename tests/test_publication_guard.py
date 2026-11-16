@@ -48,7 +48,7 @@ public_url_hosts = ["github.com"]
         self.manifest()
         with self.assertRaises(guard.AuditError) as caught:
             guard.check(self.root)
-        self.assertIn("cover-hash-mismatch", str(caught.exception))
+        self.assertIn("cover-hash-mismatch", [issue.category for issue in caught.exception.issues])
 
     def write(self, relative, content):
         path = self.root / relative
