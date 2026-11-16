@@ -41,6 +41,18 @@ public_url_hosts = ["github.com"]
         self.files = ["PUBLIC-FILES.json", "PUBLICATION.toml", "pyproject.toml", "CHANGELOG.md", "src/demo.py", "docs/evolution/1.0.0.md"]
         self.manifest()
 
+    def test_changed_cover_rejected(self):
+        for name in guard.COVER_HASHES:
+            with self.subTest(cover=name):
+                self.write(name, "synthetic replacement, not reviewed cover bytes")
+                self.files.append(name)
+                self.manifest()
+                with self.assertRaises(guard.AuditError) as caught:
+                    guard.check(self.root)
+                self.assertIn("cover-hash-mismatch", [issue.category for issue in caught.exception.issues])
+                self.files.remove(name)
+                (self.root / name).unlink()
+
     def write(self, relative, content):
         path = self.root / relative
         path.parent.mkdir(parents=True, exist_ok=True)

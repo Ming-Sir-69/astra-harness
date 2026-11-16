@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.2] - 2026-11-16
+
+Facade review: move the five-step method into main features, state method changes and pending intervention objectively, and localize the architecture illustration. Covers use an OpenAI-generated illustration processed for light and dark themes; runtime behavior is unchanged.
+
+Unify bilingual README structure and generated covers. Pin four reviewed PNG hashes in the publication checker; all other binary payloads remain rejected. Runtime interfaces and research conclusions are unchanged.
+
+
 Public distribution versions track the scope of this repository. Internal package and remote-interface versions are described separately in [evolution](docs/evolution.md).
 
 ## [0.1.1] - 2026-11-15
@@ -18,3 +25,4 @@ First public distribution of the bounded research core.
 - Document implementation lineage, concrete research directions, and the public/private boundary.
 
 Actual records, personal runtime/configuration, native collectors, model training, automatic maintenance, live deployment, and cloud/MCP runtime are excluded. There are no earlier public tags or releases of this core. Real-user effectiveness and complete task coverage remain unverified.
+
