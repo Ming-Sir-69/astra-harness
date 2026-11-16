@@ -8,7 +8,7 @@
 <p align="center">
 <img alt="license MIT" src="https://img.shields.io/badge/license-MIT-F6C555?style=flat-square&labelColor=2E2A26">
 <img alt="python 3.11%2B" src="https://img.shields.io/badge/python-3.11%2B-6B655C?style=flat-square&labelColor=2E2A26">
-<img alt="version 0.1.2" src="https://img.shields.io/badge/version-0.1.2-6B655C?style=flat-square&labelColor=2E2A26">
+<img alt="version 0.1.3" src="https://img.shields.io/badge/version-0.1.3-6B655C?style=flat-square&labelColor=2E2A26">
 <a href="https://github.com/Ming-Sir-69/astra-harness/actions/workflows/research-core.yml"><img alt="Synthetic research CI" src="https://img.shields.io/github/actions/workflow/status/Ming-Sir-69/astra-harness/research-core.yml?branch=main&style=flat-square&labelColor=2E2A26&color=A8A196"></a>
 </p>
 
@@ -31,7 +31,7 @@ No extra logging; the workflow uses the traces that already exist:
 <details>
 <summary>Public capabilities and boundaries</summary>
 
-| Capability | Public 0.1.2 | Boundary |
+| Capability | Public 0.1.3 | Boundary |
 |---|---|---|
 | HCD event protocol and SQLite ledger | Implemented | Explicit data root; bounded inputs; idempotency; ownership/epoch checks |
 | Acceptance and ordinal distance | Implemented | Plan/result separate; evidence required; later corrections and expiry invalidate stale state |
@@ -110,6 +110,34 @@ Acknowledgements to the Python and SQLite open-source projects for the runtime a
 ## References
 
 1. Python Software Foundation. *Python 3.11 documentation: sqlite3 — DB-API 2.0 interface for SQLite databases*. https://docs.python.org/3.11/library/sqlite3.html
+
+## Related work
+
+These works relate to mechanisms discussed by this project and provide context for comparison. Their inclusion does not imply that the public implementation is based on them.
+
+1. Shinn, N., Cassano, F., Berman, E., Gopinath, A., Narasimhan, K., & Yao, S. (2023). Reflexion: Language Agents with Verbal Reinforcement Learning. NeurIPS 2023. <https://arxiv.org/abs/2303.11366>. Verbal reflections on failed attempts relate to this project’s practice of summarizing causes from existing traces.
+
+2. Madaan, A., et al. (2023). Self-Refine: Iterative Refinement with Self-Feedback. NeurIPS 2023. <https://arxiv.org/abs/2303.17651>. Iterative generation, feedback and refinement relate to this project’s iterative improvement workflow.
+
+3. Yang, C., et al. (2024). Large Language Models as Optimizers. ICLR 2024. <https://arxiv.org/abs/2309.03409>. Score-guided prompt optimization relates to this project’s iteration on prompts and work procedures.
+
+4. Shankar, S., Zamfirescu-Pereira, J. D., Hartmann, B., Parameswaran, A., & Arawjo, I. (2024). Who Validates the Validators? Aligning LLM-Assisted Evaluation of LLM Outputs with Human Preferences. UIST '24. <https://doi.org/10.1145/3654777.3676450>. Evaluation criteria shaped through human review relate to extracting criteria from review traces in this project.
+
+5. Wu, T., Ribeiro, M. T., Heer, J., & Weld, D. S. (2019). Errudite: Scalable, Reproducible, and Testable Error Analysis. ACL 2019. <https://doi.org/10.18653/v1/P19-1073>. Grouping errors and testing counterfactuals relate to this project’s grouping of shared causes and subsequent recurrence checks.
+
+6. Lunney, J., & Lueder, S. (2016). Postmortem Culture: Learning from Failure. In Beyer, B., Jones, C., Petoff, J., & Murphy, N. R. (Eds.), Site Reliability Engineering, Chapter 15. O’Reilly Media. <https://sre.google/sre-book/postmortem-culture/>. Blameless incident reviews relate to deriving improvement actions from failure traces in this project.
+
+7. Allspaw, J. (2012). Blameless PostMortems and a Just Culture. Etsy Code as Craft. <https://www.etsy.com/codeascraft/blameless-postmortems>. Examining why an action made sense at the time relates to this project’s search for systemic causes rather than individual blame.
+
+8. Ohno, T. (1988). Toyota Production System: Beyond Large-Scale Production. Productivity Press. <https://doi.org/10.4324/9780429273018>. The five-whys approach relates to this project’s root-cause analysis; the DOI identifies a later reissue of the 1988 book.
+
+9. Kohavi, R., Tang, D., & Xu, Y. (2020). Trustworthy Online Controlled Experiments: A Practical Guide to A/B Testing. Cambridge University Press. <https://doi.org/10.1017/9781108653985>. Controlled-experiment methods relate to changing one element at a time and observing outcomes in this project; its current workflow is not a controlled experiment.
+
+10. Joachims, T., Granka, L., Pan, B., Hembrooke, H., & Gay, G. (2005). Accurately interpreting clickthrough data as implicit feedback. SIGIR '05. <https://doi.org/10.1145/1076034.1076063>. Implicit behavioral feedback and its biases relate to extracting signals from collaboration traces in this project.
+
+11. Amershi, S., Cakmak, M., Knox, W. B., & Kulesza, T. (2014). Power to the People: The Role of Humans in Interactive Machine Learning. AI Magazine, 35(4), 105–120. <https://doi.org/10.1609/aimag.v35i4.2513>. Human participation in interactive machine learning relates to human–AI correction in this project.
+
+12. Christiano, P., Leike, J., Brown, T., Martic, M., Legg, S., & Amodei, D. (2017). Deep Reinforcement Learning from Human Preferences. NeurIPS 2017. <https://arxiv.org/abs/1706.03741>. Learning from human comparisons relates to this project’s interest in human corrections; the public package does not implement preference-based reinforcement learning.
 
 ## Repository structure
 
