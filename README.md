@@ -20,7 +20,13 @@
 
 ## 主要功能
 
-HCD 事件协议使用 Python 标准库的 SQLite 接口保存账本<sup>[[1]](#参考文献)</sup>。
+不额外登记，直接用平时就留下的痕迹：
+
+1. **汇集已有痕迹**：提交记录、对话原文、评审意见，本来就在。
+2. **归并共同原因**：只看同一个原因在两处以上出现的问题，一次性的不追。
+3. **对照做得好的做法**：找出差在哪一步。
+4. **一次只改一处**：改动小，才看得出是不是这处起了作用。
+5. **回头看是否再犯**：过几天看同类问题还出不出现，出现就说明没改对。
 
 <details>
 <summary>公开能力与边界</summary>
@@ -62,22 +68,16 @@ macOS 的 `/var`、`/tmp` 是软链接；核心拒绝软链接路径组件，上
 
 ## 设计与原理
 
+HCD 事件协议使用 Python 标准库的 SQLite 接口保存账本<sup>[[1]](#参考文献)</sup>。
+
 <picture>
-<source media="(prefers-color-scheme: dark)" srcset="readme-assets/architecture-dark.svg">
-<img src="readme-assets/architecture-light.svg" alt="Synthetic events to SQLite ledger to injected runner to recurrence report" width="100%">
+<source media="(prefers-color-scheme: dark)" srcset="readme-assets/architecture-zh-dark.svg">
+<img src="readme-assets/architecture-zh-light.svg" alt="合成事件 → SQLite 账本 → 注入执行器 → 复发报告" width="100%">
 </picture>
 
-不额外登记，直接用平时就留下的痕迹：
+**方法变化**：早期方案逐次登记纠正，再聚类寻找共同原因。逐次登记存在额外操作负担与漏记问题；当前方法直接分析已有提交、对话与评审痕迹。材料覆盖与操作成本尚无量化对照。
 
-1. **汇集已有痕迹**：提交记录、对话原文、评审意见，本来就在。
-2. **归并共同原因**：只看同一个原因在两处以上出现的问题，一次性的不追。
-3. **对照做得好的做法**：找出差在哪一步。
-4. **一次只改一处**：改动小，才看得出是不是这处起了作用。
-5. **回头看是否再犯**：过几天看同类问题还出不出现，出现就说明没改对。
-
-**从“每次纠正都登记”改成“直接分析已有痕迹”。** 一开始早期方案要求 AI 把每次纠正都记下来，再聚类找共同原因。后来发现登记本身就是负担，而且总有漏记；提交、对话、评审意见本来就留着，直接从里面找，材料更全，也不打断干活。
-
-**最近一次发现**：好几次返工是同一个原因——任务只写了怎么做，没写给谁用、不做什么。于是在开工前加了三行确认。复查标准定好了，结果还没出来，有了再补在这里。
+**待复查的干预**：已有返工被归因于任务说明缺少使用对象与范围约束，因此在开工前增加三行确认。复查标准已设定，尚无干预结果。
 
 这里放的是早期做法（逐次登记纠正、跨任务聚类、看干预后是否复发）的研究核心。代码里的 `hcd` 模块（Human Correction Distance，纠偏距离）是当时用来衡量纠正程度的部分，当前工作方式已不再使用它，留作参考。仓库只含源码、从零合成的示例和文档，没有任何真实对话、日志或任务记录。
 
@@ -101,6 +101,8 @@ macOS 的 `/var`、`/tmp` 是软链接；核心拒绝软链接路径组件，上
 
 ## 致谢
 
+封面图标沿用 Lucide 几何，许可见 [图标许可](readme-assets/LUCIDE-LICENSE.txt)。
+
 感谢 Python 与 SQLite 开源项目提供运行环境及账本存储基础。<sup>[[1]](#参考文献)</sup>
 
 ## 参考文献
@@ -121,4 +123,4 @@ macOS 的 `/var`、`/tmp` 是软链接；核心拒绝软链接路径组件，上
 ---
 
 文档维护：**✦ EricMingle69** · [Ming-Sir-69](https://github.com/Ming-Sir-69)  
-代码、文字与图以 [MIT 许可](LICENSE) 发布。
+代码、文字与自有图形以 [MIT 许可](LICENSE) 发布；Lucide 图标沿用 [ISC 许可](readme-assets/LUCIDE-LICENSE.txt)。

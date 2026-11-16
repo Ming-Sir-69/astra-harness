@@ -23,3 +23,5 @@ First public distribution of the bounded research core.
 - Document implementation lineage, concrete research directions, and the public/private boundary.
 
 Actual records, personal runtime/configuration, native collectors, model training, automatic maintenance, live deployment, and cloud/MCP runtime are excluded. There are no earlier public tags or releases of this core. Real-user effectiveness and complete task coverage remain unverified.
+
+Facade review: move the five-step method into main features, state method changes and pending intervention objectively, and localize the architecture illustration. Covers reuse Lucide icon geometry with its ISC notice; runtime behavior is unchanged.

@@ -20,7 +20,13 @@ This project examines recurring corrections in human–AI work: group existing t
 
 ## Main features
 
-The HCD event protocol stores its ledger through the Python standard-library SQLite interface<sup>[[1]](#references)</sup>。
+No extra logging; the workflow uses the traces that already exist:
+
+1. **Gather existing traces**: commits, conversations, review comments.
+2. **Group by shared cause**: only problems whose cause shows up in two or more places.
+3. **Compare with what works well**: find the step where it falls short.
+4. **Change one thing at a time**: small enough to tell whether it was that change.
+5. **Look again later**: if the same kind of problem comes back, the change did not work.
 
 <details>
 <summary>Public capabilities and boundaries</summary>
@@ -62,22 +68,16 @@ For library use, call `hcd.record(event, data_root)` and `hcd.report(data_root)`
 
 ## Design and principles
 
+The HCD event protocol stores its ledger through the Python standard-library SQLite interface<sup>[[1]](#references)</sup>.
+
 <picture>
 <source media="(prefers-color-scheme: dark)" srcset="readme-assets/architecture-dark.svg">
 <img src="readme-assets/architecture-light.svg" alt="Synthetic events to SQLite ledger to injected runner to recurrence report" width="100%">
 </picture>
 
-No extra logging; the workflow uses the traces that already exist:
+**Method change**: the earlier approach recorded each correction and then clustered the records by shared cause. Per-correction logging added work and missed entries; the current method analyses existing commits, conversations and reviews. Material coverage and operating cost have no quantitative comparison.
 
-1. **Gather existing traces**: commits, conversations, review comments.
-2. **Group by shared cause**: only problems whose cause shows up in two or more places.
-3. **Compare with what works well**: find the step where it falls short.
-4. **Change one thing at a time**: small enough to tell whether it was that change.
-5. **Look again later**: if the same kind of problem comes back, the change did not work.
-
-**From logging every correction to analysing the traces that are already there.** The earlier approach recorded each correction and cluster them. Logging turned out to be a burden of its own, and something always got missed. Commits, conversations and reviews are kept anyway; reading them directly gives fuller material without interrupting the work.
-
-**A recent finding**: several rounds of rework had one cause — the task said how to do it, but not who it was for or what was out of scope. The workflow added a three-line check before starting. The follow-up criterion is set; the result is not in yet and will be added here.
+**Intervention awaiting review**: rework was attributed to task descriptions that omitted the intended audience and scope constraints. A three-line check was added before starting work. Follow-up criteria are defined; no intervention result is available.
 
 The research core of the earlier approach (per-correction logging, cross-task clustering, checking for recurrence after an intervention). The `hcd` module in the code (Human Correction Distance) was the part that scored corrections at the time; the current workflow retains it only for reference. Only source code, synthetic examples and documentation are here — no real conversations, logs or task records.
 
@@ -103,6 +103,8 @@ Internal package `1.0.0` and MCP interface `1.0.3` are implementation lineage, n
 
 ## Acknowledgements
 
+Cover icons use Lucide geometry; see the [icon license](readme-assets/LUCIDE-LICENSE.txt).
+
 Acknowledgements to the Python and SQLite open-source projects for the runtime and ledger storage.<sup>[[1]](#references)</sup>
 
 ## References
@@ -123,4 +125,4 @@ Acknowledgements to the Python and SQLite open-source projects for the runtime a
 ---
 
 Maintained by **✦ EricMingle69** · [Ming-Sir-69](https://github.com/Ming-Sir-69)  
-Code, text and figures are released under the [MIT License](LICENSE).
+Code, text and original graphics are released under the [MIT License](LICENSE); Lucide icons retain their [ISC License](readme-assets/LUCIDE-LICENSE.txt).

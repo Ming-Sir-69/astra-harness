@@ -24,7 +24,7 @@ from urllib.parse import parse_qsl, urlsplit
 MANIFEST = "PUBLIC-FILES.json"
 CONFIG = "PUBLICATION.toml"
 # Reviewed, generated covers only; other binary files remain forbidden.
-COVER_HASHES = {'readme-assets/cover-en-light.png': '5131035bf2f197c8e2fed558c5533a453dcb6cb1ed0810d52aa5c89325eb82b3', 'readme-assets/cover-en-dark.png': '42ef1f9378e1d422d690f39baea0f41a89fd5fa09ce71a14384650e34fde03ce', 'readme-assets/cover-zh-dark.png': '56424ed6343cfdc6f5b9c7ba5174db2aa9e7867098eba410338ed7ecd649c011', 'readme-assets/cover-zh-light.png': '44618a534c39b8e280f3fd2a33afdef1d0795344557d56353e2874af4aebe14b'}
+COVER_HASHES = {'readme-assets/cover-en-light.png': 'f7e1e32d6c48b9a9614c6ebe94c92e1f358f34e91fb6de92f4c2e97b2a583a10', 'readme-assets/cover-en-dark.png': 'd36e16e752b760f6ab41ce0128b55e1f7868590128f3ad0f1042c05405440667', 'readme-assets/cover-zh-dark.png': 'eefc824d684c8eefbb1ec96bfd8d69b2e68eb57393b2cf0caea71c5ea452c13c', 'readme-assets/cover-zh-light.png': '9c88b27c763d09f321709327d34ff57d16d022ef022d72408480a0bf7975db15'}
 MAX_FILES = 3000
 MAX_BYTES = 2_000_000
 DENIED_DIRS = frozenset({
