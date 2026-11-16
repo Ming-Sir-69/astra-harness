@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.1.3] - 2026-11-16
+
+Add twelve related works to both README languages after the implementation references, with explicit mechanism mappings and a distinction from implementation provenance. Runtime behavior and research claims remain unchanged. Add the two public publisher hosts to the publication URL allowlist.
+
 ## [0.1.2] - 2026-11-16
 
 Facade review: move the five-step method into main features, state method changes and pending intervention objectively, and localize the architecture illustration. Covers use an OpenAI-generated illustration processed for light and dark themes; runtime behavior is unchanged.
