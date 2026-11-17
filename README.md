@@ -8,7 +8,7 @@
 <p align="center">
 <img alt="license MIT" src="https://img.shields.io/badge/license-MIT-F6C555?style=flat-square&labelColor=2E2A26">
 <img alt="python 3.11%2B" src="https://img.shields.io/badge/python-3.11%2B-6B655C?style=flat-square&labelColor=2E2A26">
-<img alt="version 0.1.3" src="https://img.shields.io/badge/version-0.1.3-6B655C?style=flat-square&labelColor=2E2A26">
+<img alt="version 0.1.4" src="https://img.shields.io/badge/version-0.1.4-6B655C?style=flat-square&labelColor=2E2A26">
 <a href="https://github.com/Ming-Sir-69/astra-harness/actions/workflows/research-core.yml"><img alt="Synthetic research CI" src="https://img.shields.io/github/actions/workflow/status/Ming-Sir-69/astra-harness/research-core.yml?branch=main&style=flat-square&labelColor=2E2A26&color=A8A196"></a>
 </p>
 
@@ -31,7 +31,7 @@
 <details>
 <summary>公开能力与边界</summary>
 
-| 能力 | 公共 0.1.3 | 边界 |
+| 能力 | 公共 0.1.4 | 边界 |
 |---|---|---|
 | HCD 事件协议与 SQLite 账本 | 已实现 | 显式数据根、输入限额、幂等、owner/epoch 检查 |
 | 接受状态与序数距离 | 已实现 | 方案/成品分开；需证据；后续纠偏和过期使旧状态失效 |
@@ -150,5 +150,5 @@ HCD 事件协议使用 Python 标准库的 SQLite 接口保存账本<sup>[[1]](#
 
 ---
 
-文档维护：**✦ EricMingle69** · [Ming-Sir-69](https://github.com/Ming-Sir-69)  
+文档维护：<picture><source media="(prefers-color-scheme: dark)" srcset="readme-assets/em-logo-dark.svg"><img src="readme-assets/em-logo-light.svg" alt="EM" height="13"></picture> <b>EricMingle69</b> · <a href="https://github.com/Ming-Sir-69">Ming-Sir-69</a><br>
 代码、文字与自有图形以 [MIT 许可](LICENSE) 发布。

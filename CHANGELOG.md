@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.1.4] - 2026-11-17
+
+Replace the cover signature and bilingual README footer with the EM logo. Add light/dark inline logo assets, remove the old star mark from authorship notices and legacy banners, and update the four reviewed cover hashes. Runtime behavior is unchanged.
+
 ## [0.1.3] - 2026-11-16
 
 Add twelve related works to both README languages after the implementation references, with explicit mechanism mappings and a distinction from implementation provenance. Runtime behavior and research claims remain unchanged. Add the two public publisher hosts to the publication URL allowlist.
