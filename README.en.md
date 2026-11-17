@@ -8,7 +8,7 @@
 <p align="center">
 <img alt="license MIT" src="https://img.shields.io/badge/license-MIT-F6C555?style=flat-square&labelColor=2E2A26">
 <img alt="python 3.11%2B" src="https://img.shields.io/badge/python-3.11%2B-6B655C?style=flat-square&labelColor=2E2A26">
-<img alt="version 0.1.3" src="https://img.shields.io/badge/version-0.1.3-6B655C?style=flat-square&labelColor=2E2A26">
+<img alt="version 0.1.4" src="https://img.shields.io/badge/version-0.1.4-6B655C?style=flat-square&labelColor=2E2A26">
 <a href="https://github.com/Ming-Sir-69/astra-harness/actions/workflows/research-core.yml"><img alt="Synthetic research CI" src="https://img.shields.io/github/actions/workflow/status/Ming-Sir-69/astra-harness/research-core.yml?branch=main&style=flat-square&labelColor=2E2A26&color=A8A196"></a>
 </p>
 
@@ -31,7 +31,7 @@ No extra logging; the workflow uses the traces that already exist:
 <details>
 <summary>Public capabilities and boundaries</summary>
 
-| Capability | Public 0.1.3 | Boundary |
+| Capability | Public 0.1.4 | Boundary |
 |---|---|---|
 | HCD event protocol and SQLite ledger | Implemented | Explicit data root; bounded inputs; idempotency; ownership/epoch checks |
 | Acceptance and ordinal distance | Implemented | Plan/result separate; evidence required; later corrections and expiry invalidate stale state |
@@ -152,5 +152,5 @@ These works relate to mechanisms discussed by this project and provide context f
 
 ---
 
-Maintained by **✦ EricMingle69** · [Ming-Sir-69](https://github.com/Ming-Sir-69)  
+Maintained by <picture><source media="(prefers-color-scheme: dark)" srcset="readme-assets/em-logo-dark.svg"><img src="readme-assets/em-logo-light.svg" alt="EM" height="13"></picture> <b>EricMingle69</b> · <a href="https://github.com/Ming-Sir-69">Ming-Sir-69</a><br>
 Code, text and original graphics are released under the [MIT License](LICENSE).
