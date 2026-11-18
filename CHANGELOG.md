@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.1.5] - 2026-11-18
+
+Replace all four covers: the illustration is cropped to its content and sized by one shared rule; sides where the drawing runs to the image edge fade into the background, so no square boundary shows. Runtime behavior is unchanged.
+
 ## [0.1.4] - 2026-11-17
 
 Replace the cover signature and bilingual README footer with the EM logo. Add light/dark inline logo assets, remove the old star mark from authorship notices and legacy banners, and update the four reviewed cover hashes. Runtime behavior is unchanged.
